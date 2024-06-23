@@ -18,7 +18,7 @@ function App() {
   const [language, setLanguage] = useState(
     localStorage.getItem("language") || "EN"
   );
-  const [selectedDeck, setSelectedDeck] = useState("Full Engin");
+  const [selectedDeck, setSelectedDeck] = useState("Full Engine");
 
   useEffect(() => {
     const loadData = () => {

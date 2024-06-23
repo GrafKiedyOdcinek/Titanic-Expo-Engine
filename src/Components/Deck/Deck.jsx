@@ -1,20 +1,20 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
-const Deck = ({ selectedDeck, data }) => {
+const Deck = ({ selectedDeck }) => {
   // const [details, setDetails] = useState([]);
   // const [firstClass, setFirstClass] = useState("");
   // const [secondClass, setSecondClass] = useState("");
   // const [thirdClass, setThirdClass] = useState("");
   // const [room, setRoom] = useState("");
 
-  useEffect(() => {
-    const deckDetails = data?.find((deck) => deck.name === selectedDeck);
-    // setDetails(deckDetails ? deckDetails.details : []);
-    // setFirstClass(deckDetails ? deckDetails.firstClass : "");
-    // setSecondClass(deckDetails ? deckDetails.secondClass : "");
-    // setThirdClass(deckDetails ? deckDetails.thirdClass : "");
-    // setRoom(deckDetails ? deckDetails.room : "");
-  }, [selectedDeck, data]);
+  // useEffect(() => {
+  //   // const deckDetails = data?.find((deck) => deck.name === selectedDeck);
+  //   // setDetails(deckDetails ? deckDetails.details : []);
+  //   // setFirstClass(deckDetails ? deckDetails.firstClass : "");
+  //   // setSecondClass(deckDetails ? deckDetails.secondClass : "");
+  //   // setThirdClass(deckDetails ? deckDetails.thirdClass : "");
+  //   // setRoom(deckDetails ? deckDetails.room : "");
+  // }, [selectedDeck, data]);
 
   // const divideDetailsIntoColumns = (details, columns) => {
   //   const itemsPerColumn = Math.ceil(details.length / columns);
