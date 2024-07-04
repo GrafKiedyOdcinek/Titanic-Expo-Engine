@@ -48,26 +48,9 @@ function App() {
     return translations[language][key];
   };
 
-  const handleSelectChange = (event) => {
-    setSelectedDeck(event.target.value);
-  };
-
   return (
     <div className="p-4">
       <header className="flex flex-col sm:flex-row justify-between items-center gap-4">
-        {/* <div className="deck-selector">
-          <select
-            value={selectedDeck}
-            onChange={handleSelectChange}
-            className="text-black p-4 border rounded-full w-50 focus:outline-none focus:border-transparent"
-          >
-            {data.map((deck) => (
-              <option key={deck.name} value={deck.name}>
-                {deck.name}
-              </option>
-            ))}
-          </select>
-        </div> */}
         <div className="grade flex flex-col gap-1 justify-center w-full text-4xl items-center">
           <h1 className="benchnine-bold">{selectedDeck}</h1>
           <p className="font-brygada">{getTranslation("subTitle")}</p>
@@ -124,13 +107,13 @@ function App() {
           </CSSTransition>
         </TransitionGroup>
         <div className="engin-option">
-          <div className="deck-selector flex justify-evenly">
+          <div className="deck-selector flex justify-evenly flex-wrap gap-4">
             {data.map((deck) => (
               <button
                 key={deck.name}
                 value={deck.name}
                 onClick={() => setSelectedDeck(deck.name)}
-                className="bg-white text-black p-4 border rounded-full w-50 focus:outline-none focus:border-transparent min-w-[200px] hover:bg-blue-gray-200 ripple"
+                className="bg-white text-black p-3 border rounded-full w-50 focus:outline-none focus:border-transparent min-w-[200px] ripple"
               >
                 {deck.name}
               </button>
