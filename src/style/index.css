@@ -245,7 +245,7 @@ img.w-full.object-contain {
 
 .ripple {
   background-position: center;
-  transition: background 1s;
+  transition: background 0.8s;
 }
 .ripple:hover {
   background: #bdc3c9 radial-gradient(circle, transparent 1%, #2a557c 1%)
