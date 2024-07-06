@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,400..700;1,400..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=BenchNine:wght@300;400;700&family=Brygada+1918:ital,wght@0,400..700;1,400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -22,7 +22,7 @@ h1 {
 }
 
 .font-brygada {
-  font-family: "Brygada 1918";
+  font-family: "Times New Roman";
   font-weight: 700;
   font-optical-sizing: auto;
   font-style: normal;
@@ -30,14 +30,14 @@ h1 {
 }
 
 .benchnine-bold {
-  font-family: "BenchNine";
+  font-family: "Bebas Neue";
   font-weight: 700;
   font-style: normal;
   font-size: 2em;
 }
 
 .benchnine {
-  font-family: "BenchNine";
+  font-family: "Bebas Neue";
   font-weight: 700;
   font-style: normal;
   font-size: 1.9em;
@@ -197,12 +197,10 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* min-height: 70vh;
-  max-height: 70vh; */
 }
 
 img.w-full.object-contain {
-  max-height: 100vh;
+  max-height: 75vh;
 }
 
 @media screen and (min-width: 320px) and (max-width: 768px) {
