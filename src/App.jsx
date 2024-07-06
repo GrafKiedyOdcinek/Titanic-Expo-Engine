@@ -12,6 +12,7 @@ import deckDataEN from "./Data/galerieEN.json";
 import deckDataFR from "./Data/galerieFR.json";
 import Deck from "./Components/Deck/Deck";
 import Ornement from "./Components/Ornement/Ornement";
+import FullScreenButton from "./Components/Fullscreen";
 
 const translations = {
   EN: {
@@ -106,6 +107,7 @@ const App = () => {
         </div>
       </main>
       <Ornement />
+      <FullScreenButton />
     </div>
   );
 };
