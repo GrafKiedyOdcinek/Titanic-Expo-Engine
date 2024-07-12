@@ -6,7 +6,6 @@ import {
   PopoverContent,
   Typography,
 } from "@material-tailwind/react";
-// import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import deckDataEN from "./Data/galerieEN.json";
 import deckDataFR from "./Data/galerieFR.json";
@@ -29,7 +28,7 @@ const App = () => {
   const [language, setLanguage] = useState(
     localStorage.getItem("language") || "EN"
   );
-  const [selectedDeck, setSelectedDeck] = useState("Full Engine");
+  const [selectedDeckIndex, setSelectedDeckIndex] = useState(0);
 
   const data = useMemo(
     () => (language === "FR" ? deckDataFR : deckDataEN),
@@ -44,14 +43,26 @@ const App = () => {
     setLanguage(lang);
   };
 
+  const nextDeck = () => {
+    setSelectedDeckIndex((prevIndex) =>
+      prevIndex === data.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const prevDeck = () => {
+    setSelectedDeckIndex((prevIndex) =>
+      prevIndex === 0 ? data.length - 1 : prevIndex - 1
+    );
+  };
+
   return (
     <div className="p-4 relative">
       <OrnementLeft />
       <OrnementRight />
       <div className="flex justify-center">
-        <header className="flex  sm:flex-row justify-center items-center gap-4 w-[65%]">
+        <header className="flex sm:flex-row justify-center items-center gap-4 w-[65%]">
           <div className="grade flex flex-col gap-1 justify-center w-full text-4xl items-center">
-            <h1 className="benchnine-bold">{selectedDeck}</h1>
+            <h1 className="benchnine-bold">{data[selectedDeckIndex].name}</h1>
             <p className="font-brygada">{translations[language].subTitle}</p>
           </div>
           <div className="language flex gap-6">
@@ -91,21 +102,17 @@ const App = () => {
         <div className="separator border mt-6 w-[80%]"></div>
       </div>
       <main className="p-10">
-        {/* <TransitionGroup> */}
-        {/* <CSSTransition key={selectedDeck} timeout={500} classNames="bounce"> */}
         <Deck
-          selectedDeck={selectedDeck}
-          setSelectedDeck={setSelectedDeck}
-          data={data}
+          selectedDeck={data[selectedDeckIndex].name}
+          nextDeck={nextDeck}
+          prevDeck={prevDeck}
         />
-        {/* </CSSTransition> */}
-        {/* </TransitionGroup> */}
         <div className="engin-option">
           <div className="deck-selector flex justify-evenly flex-wrap gap-4">
-            {data.map((deck) => (
+            {data.map((deck, index) => (
               <button
                 key={deck.name}
-                onClick={() => setSelectedDeck(deck.name)}
+                onClick={() => setSelectedDeckIndex(index)}
                 className="bg-white text-black p-3 border rounded-full w-50 focus:outline-none focus:border-transparent min-w-[200px] ripple"
               >
                 {deck.name}
