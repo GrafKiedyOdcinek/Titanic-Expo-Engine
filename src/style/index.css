@@ -199,7 +199,7 @@ h1 {
 }
 
 img.w-full.object-contain {
-  max-height: 75vh;
+  max-height: 60vh;
 }
 
 @media screen and (min-width: 320px) and (max-width: 768px) {
@@ -248,4 +248,10 @@ img.w-full.object-contain {
 }
 .ripple:active {
   transform: scale(0.8);
+}
+footer {
+  position: absolute;
+  bottom: -110px;
+  width: 100%;
+  left: 0;
 }
