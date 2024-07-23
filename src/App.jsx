@@ -6,33 +6,23 @@ import {
   PopoverContent,
   Typography,
 } from "@material-tailwind/react";
-
-import deckDataEN from "./Data/galerieEN.json";
-import deckDataFR from "./Data/galerieFR.json";
 import Deck from "./Components/Deck/Deck";
 import Ornement from "./Components/Ornement/Ornement";
 import FullScreenButton from "./Components/Fullscreen";
 import OrnementLeft from "./Components/Ornement/OrnementLeft";
 import OrnementRight from "./Components/Ornement/OrnementRight";
-
-const translations = {
-  EN: {
-    subTitle: "TITANIC BLUESCREEN LAYOUT",
-  },
-  FR: {
-    subTitle: "TITANIC PLAN DE BLUESCREEN",
-  },
-};
+import useTranslations from "./hooks/useTranslations";
 
 const App = () => {
+  const { translations, languages } = useTranslations();
   const [language, setLanguage] = useState(
     localStorage.getItem("language") || "EN"
   );
   const [selectedDeckIndex, setSelectedDeckIndex] = useState(0);
 
   const data = useMemo(
-    () => (language === "FR" ? deckDataFR : deckDataEN),
-    [language]
+    () => translations[language] || [],
+    [language, translations]
   );
 
   useEffect(() => {
@@ -62,8 +52,8 @@ const App = () => {
       <div className="flex justify-center">
         <header className="flex sm:flex-row justify-center items-center gap-4 w-[65%]">
           <div className="grade flex flex-col gap-1 justify-center w-full text-4xl items-center">
-            <h1 className="benchnine-bold">{data[selectedDeckIndex].name}</h1>
-            <p className="font-brygada">{translations[language].subTitle}</p>
+            <h1 className="benchnine-bold">{data[selectedDeckIndex]?.name}</h1>
+            <p className="font-brygada">{translations[language]?.subTitle}</p>
           </div>
           <div className="language flex gap-6">
             <Popover placement="bottom-end">
@@ -75,7 +65,7 @@ const App = () => {
                 </button>
               </PopoverHandler>
               <PopoverContent className="w-72 pb-0">
-                {["FR", "EN"].map((lang) => (
+                {languages.map((lang) => (
                   <div
                     key={lang}
                     onClick={() => changeLanguage(lang)}
@@ -88,7 +78,7 @@ const App = () => {
                     </div>
                     <div>
                       <Typography variant="h6" color="blue-gray">
-                        {lang === "FR" ? "Français" : "English"}
+                        {lang}
                       </Typography>
                     </div>
                   </div>
@@ -103,7 +93,7 @@ const App = () => {
       </div>
       <main className="p-10">
         <Deck
-          selectedDeck={data[selectedDeckIndex].name}
+          selectedDeck={data[selectedDeckIndex]?.name}
           nextDeck={nextDeck}
           prevDeck={prevDeck}
         />
