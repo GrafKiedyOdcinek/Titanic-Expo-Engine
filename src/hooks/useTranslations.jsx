@@ -9,7 +9,7 @@ const useTranslations = () => {
       const files = [
         { language: "EN", path: "./Data/galerieEN.json" },
         { language: "FR", path: "./Data/galerieFR.json" },
-        // { language: "IT", path: "./public/Data/galerieIT.json" }, (for example)
+        { language: "IT", path: "./Data/galerieIT.json" },
       ];
 
       const translationsData = {};
