@@ -7,8 +7,8 @@ const useTranslations = () => {
   useEffect(() => {
     const loadTranslations = async () => {
       const files = [
-        { language: "EN", path: "./public/Data/galerieEN.json" },
-        { language: "FR", path: "./public/Data/galerieFR.json" },
+        { language: "EN", path: "./Data/galerieEN.json" },
+        { language: "FR", path: "./Data/galerieFR.json" },
         // { language: "IT", path: "./public/Data/galerieIT.json" }, (for example)
       ];
 
